@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+
+
+{% block content %}
+
+    <section class="ftco-section" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+
+                    {% for blog in blogs %}
+                        <div class="case">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6 col-xl-8 d-flex">
+                                    <a href="blog-single.html" class="img w-100 mb-3 mb-md-0"
+                                       style="background-image: url({{ blog.image.url }});"></a>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-xl-4 d-flex">
+                                    <div class="text w-100 pl-md-3">
+                                        <span class="subheading">{{ blog.category.title }}</span>
+                                        <h2><a href="{{ blog.url_blog }}">{{ blog.title }}</a>
+                                        </h2>
+                                        <ul class="media-social list-unstyled">
+                                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a>
+                                            </li>
+                                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a>
+                                            </li>
+                                            <li class="ftco-animate"><a href="#"><span
+                                                    class="icon-instagram"></span></a>
+                                            </li>
+                                        </ul>
+                                        <div class="meta">
+                                            <p class="mb-0"><a href="#">{{ blog.modifate_date|date:"d/m/Y H:i" }}</a> | <a href="#"><img
+                                                   class="views" src="{% static 'images/views.png' %}" alt=""> {{ blog.views }}</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+            {% include 'paginator.html' %}
+        </div>
+    </section>
+
+{% endblock %}
+
+

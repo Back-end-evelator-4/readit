@@ -1,0 +1,25 @@
+<div class="row mt-5">
+    <div class="col text-center">
+        <div class="block-27">
+            <ul>
+                {% if blogs.has_previous %}
+                    <li><a href="?page={{ blogs.previous_page_number }}#footer">&lt;</a></li>
+                {% else %}
+                    <li><span class="disabled">&lt;</span></li>
+                {% endif %}
+                {% for page in blogs.paginator.page_range %}
+                    {% if page == blogs.number %}
+                        <li class="active"><span>{{ page }}</span></li>
+                    {% else %}
+                        <li><a href="?page={{ page }}#footer">{{ page }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if blogs.has_next %}
+                    <li><a href="?page={{ blogs.next_page_number }}#footer">&gt;</a></li>
+                {% else %}
+                    <li><span class="disabled">&gt;</span></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
