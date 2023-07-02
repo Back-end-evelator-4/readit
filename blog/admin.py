@@ -25,7 +25,7 @@ class BlogAdmin(admin.ModelAdmin):
     list_display = ('id', 'author', 'title', 'slug', 'category', 'created_date')
     fields = ('title', 'slug', 'author', 'image', 'description', 'tags', 'category', 'created_date', 'modifate_date')
     readonly_fields = ('created_date', 'modifate_date')
-    # prepopulated_fields = {'slug': ('title', )}
+    prepopulated_fields = {'slug': ('title', )}
     search_fields = ('title', 'author__user__username', 'category__title')
     filter_horizontal = ('tags',)
     list_editable = ('category', 'author')
