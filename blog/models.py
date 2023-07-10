@@ -48,3 +48,6 @@ class SubBlog(models.Model):
     description = models.TextField()
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
     content = models.TextField(null=True, blank=True)
+
+
+
